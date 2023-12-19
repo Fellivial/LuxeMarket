@@ -1,0 +1,80 @@
+/* button.btn {
+  z-index: 100;
+  margin-top: -10px;
+  font-size: 20px;
+  display: block;
+  font-family: "Monument";
+  font-weight: lighter;
+  cursor: pointer;
+  text-transform: uppercase;
+  color: rgba(181, 186, 190, 255);
+}
+
+button.btn:hover::after {
+  opacity: 1;
+  transform: scaleX(1);
+  transform-origin: 0 50%;
+  transition: transform 0.7s cubic-bezier(0.2, 1, 0.3, 1), opacity 0.1s linear;
+}
+
+button.btn::after {
+  content: "";
+  position: absolute;
+  margin-top: 30px;
+  left: 5.2%;
+  width: 210px;
+  z-index: 100;
+  height: 2px;
+  background: rgba(254, 124, 4, 255);
+  transform: scaleX(0.001);
+  opacity: 0;
+  transform-origin: 100% 50%;
+  transition: transform 0.3s cubic-bezier(0.2, 1, 0.3, 1),
+    opacity 0.1s linear 0.2s;
+}
+
+h2.text {
+  z-index: 100;
+  font-size: 50px;
+  font-family: "Bigilla";
+  color: #e0e0e0;
+  text-transform: capitalize;
+  font-style: italic;
+  letter-spacing: -3px;
+  font-weight: lighter;
+  transition: 1s ease-in-out;
+}
+
+h2.text:hover {
+  transition: 1s ease-in-out;
+  color: rgb(254, 124, 4, 255);
+}
+
+h4.text {
+  z-index: 100;
+  font-size: 30px;
+  font-family: "Montserrat", sans-serif;
+  color: #e0e0e0;
+  text-transform: capitalize;
+  font-style: italic;
+  letter-spacing: -2px;
+  font-weight: lighter;
+  transition: 1s ease-in-out;
+} */
+
+/* <div className="mx-auto w-full h-screen bg-zinc-950 p-12">
+      <div className="flex flex-row justify-between items-center mt-24">
+        <div className="text-white space-y-5 w-6/12">
+          <h2 className="text-3xl">Bespoke Bronze Keyboard</h2>
+          <h4 className="text-xl">
+            The slim & simple Maple Gaming Keyboard from Dev Byte comes with a
+            sleek body and 7- Color RGB LED Back-lighting for smart
+            functionality
+          </h4>
+          <button className="btn w-[150px] p-[15px 15px] mt-[20px] capitalize text-lg border-none">explore</button>
+        </div>
+        <div className="flex justify-end w-4/12">
+          <img src={controller} />
+        </div>
+      </div>
+    </div> */
