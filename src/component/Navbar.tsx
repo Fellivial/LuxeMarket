@@ -1,10 +1,24 @@
 const Navbar = () => {
   return (
-    <div className="navbar bg-base-100">
-      <div className="flex-1">
-        <a className="btn btn-ghost text-xl">LuxeMarket</a>
+    <div className="navbar w-full bg-white">
+      <div className="navbar-start ">
+        <a className="btn btn-ghost lg:text-4xl md:text-2xl text-xl text-black font-bold">
+          LUXE.CO
+        </a>
+        <a className="btn btn-ghost lg:text-lg md:text-base text-xs text-black font-semibold">
+          Shop
+        </a>
+        <a className="btn btn-ghost lg:text-lg md:text-base text-xs text-black font-semibold">
+          On Sale
+        </a>
+        <a className="btn btn-ghost lg:text-lg md:text-base text-xs text-black font-semibold">
+          Brands
+        </a>
+        <a className="btn btn-ghost lg:text-lg md:text-base text-xs text-black font-semibold">
+          New Arrivals
+        </a>
       </div>
-      <div className="flex-none">
+      <div className="navbar-end">
         <div className="dropdown dropdown-end">
           <div tabIndex={0} role="button" className="btn btn-ghost btn-circle">
             <div className="indicator">
@@ -47,7 +61,7 @@ const Navbar = () => {
             <div className="w-10 rounded-full">
               <img
                 alt="Tailwind CSS Navbar component"
-                src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"
+                src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"
               />
             </div>
           </div>
