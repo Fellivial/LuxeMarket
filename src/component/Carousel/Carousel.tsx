@@ -1,4 +1,4 @@
-import image from "../assets/carousel.png";
+import image from "../../assets/carousel.png";
 
 const Carousel = () => {
   return (
