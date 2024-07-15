@@ -289,6 +289,20 @@ const Navbar = () => {
                 </a>
               </div>
             </div>
+
+            <div className="border-t border-gray-200 px-4 py-6">
+              <a href="#" className="-m-2 flex items-center p-2">
+                <img
+                  alt=""
+                  src="https://tailwindui.com/img/flags/flag-canada.svg"
+                  className="block h-auto w-5 flex-shrink-0"
+                />
+                <span className="ml-3 block text-base font-medium text-gray-900">
+                  CAD
+                </span>
+                <span className="sr-only">, change currency</span>
+              </a>
+            </div>
           </DialogPanel>
         </div>
       </Dialog>
@@ -317,7 +331,7 @@ const Navbar = () => {
                   Luxe.co
                 </a>
                 {/* Flyout menus */}
-                <PopoverGroup className="hidden lg:ml-8 lg:block lg:self-stretch z-40 sticky">
+                <PopoverGroup className="hidden lg:ml-8 lg:block lg:self-stretch z-40">
                   <div className="flex h-full space-x-8">
                     {navigation.categories.map((category) => (
                       <Popover key={category.name} className="flex">
@@ -431,6 +445,21 @@ const Navbar = () => {
                     className="text-sm font-medium text-gray-700 hover:text-gray-800"
                   >
                     Create account
+                  </a>
+                </div>
+
+                <div className="hidden lg:ml-8 lg:flex">
+                  <a
+                    href="#"
+                    className="flex items-center text-gray-700 hover:text-gray-800"
+                  >
+                    <img
+                      alt=""
+                      src="https://tailwindui.com/img/flags/flag-canada.svg"
+                      className="block h-auto w-5 flex-shrink-0"
+                    />
+                    <span className="ml-3 block text-sm font-medium">CAD</span>
+                    <span className="sr-only">, change currency</span>
                   </a>
                 </div>
 
