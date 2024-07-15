@@ -1,6 +1,6 @@
 import Layout from "../component/Layout/Layout";
 import Carousel from "../component/Carousel/Carousel";
-import { CardItem, CardCategory, CardAllProduct } from "../component/Card/Card";
+import { CardItem, CardCategory } from "../component/Card/Card";
 
 import Calvin from "../assets/Logo/Group (1).png";
 import Gucci from "../assets/Logo/gucci-logo-1 1.png";
@@ -199,8 +199,8 @@ const LandingPage = () => {
         <div className=" mt-6">
           <Carousel />
         </div>
-        <div className="bg-black border shadow-md w-8/12 h-20 flex justify-center items-center mt-6 rounded-md">
-          <div className="flex justify-center md:space-x-16 lg:space-x-28 md:w-28 md:h-6 lg:w-40">
+        <div className="bg-black border shadow-md w-full lg:w-8/12 h-20 flex justify-center items-center mt-6 rounded-md">
+          <div className="mt-3 lg:mt-0 grid grid-cols-5 lg:gap-x-6 gap-x-4 gap-y-10 w-10/12 md:w-20 md:h-6 lg:w-11/12">
             <img src={Versace} alt="" />
             <img src={Zara} alt="" />
             <img src={Gucci} alt="" />
@@ -213,7 +213,7 @@ const LandingPage = () => {
             <div className="mx-auto max-w-2xl py-16 sm:py-24 lg:max-w-none lg:py-32">
               <h2 className="text-2xl font-bold text-gray-900">Collections</h2>
 
-              <div className="mt-6 space-y-12 lg:grid lg:grid-cols-5 lg:gap-x-6 lg:space-y-0">
+              <div className="mt-6 grid grid-cols-2 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
                 {callouts.map((callout) => (
                   <CardCategory
                     name={callout.name}
@@ -233,7 +233,7 @@ const LandingPage = () => {
               Top Selling
             </h2>
 
-            <div className="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-5 xl:gap-x-8">
+            <div className="mt-6 grid grid-cols-2 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-5 xl:gap-x-8">
               {products.map((product) => (
                 <CardItem
                   id={product.id}
@@ -254,9 +254,9 @@ const LandingPage = () => {
               Customers also purchased
             </h2>
 
-            <div className="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
+            <div className="mt-6 grid grid-cols-2 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
               {allProducts.map((product) => (
-                <CardAllProduct
+                <CardItem
                   id={product.id}
                   name={product.name}
                   href={product.href}

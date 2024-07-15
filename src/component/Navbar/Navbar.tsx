@@ -1,7 +1,9 @@
 "use client";
 
+import Auth from "../Auth/Auth";
 import { Fragment, useState } from "react";
 import {
+  Button,
   Dialog,
   DialogBackdrop,
   DialogPanel,
@@ -154,6 +156,8 @@ const navigation = {
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
+  const handleOpen = () => setOpen((cur) => !cur);
+  const handleClose = () => setOpen(false);
 
   return (
     <div className="bg-white w-full">
@@ -271,45 +275,20 @@ const Navbar = () => {
               ))}
             </div>
 
+            {/* Modal Sign in */}
+
             <div className="space-y-6 border-t border-gray-200 px-4 py-6">
               <div className="flow-root">
-                <a
-                  href="#"
-                  className="-m-2 block p-2 font-medium text-gray-900"
-                >
-                  Sign in
-                </a>
+                <Auth onClose={handleOpen} />
               </div>
-              <div className="flow-root">
-                <a
-                  href="#"
-                  className="-m-2 block p-2 font-medium text-gray-900"
-                >
-                  Create account
-                </a>
-              </div>
-            </div>
-
-            <div className="border-t border-gray-200 px-4 py-6">
-              <a href="#" className="-m-2 flex items-center p-2">
-                <img
-                  alt=""
-                  src="https://tailwindui.com/img/flags/flag-canada.svg"
-                  className="block h-auto w-5 flex-shrink-0"
-                />
-                <span className="ml-3 block text-base font-medium text-gray-900">
-                  CAD
-                </span>
-                <span className="sr-only">, change currency</span>
-              </a>
             </div>
           </DialogPanel>
         </div>
       </Dialog>
 
       <header className="relative bg-white">
-        <p className="flex h-10 items-center justify-center bg-indigo-600 px-4 text-sm font-medium text-white sm:px-6 lg:px-8">
-          Get free delivery on orders over $100
+        <p className="flex h-10 items-center justify-center bg-black px-4 text-sm font-medium text-white sm:px-6 lg:px-8">
+          Sign up and get 20% off to your first order. Sign Up Now
         </p>
 
         <nav aria-label="Top" className="mx-auto px-4 sm:px-6 lg:px-8">
@@ -348,7 +327,7 @@ const Navbar = () => {
                           {/* Presentational element used to render the bottom shadow, if we put the shadow on the actual panel it pokes out the top, so we use this shorter element to hide the top of the shadow */}
                           <div
                             aria-hidden="true"
-                            className="absolute inset-0 top-1/2 bg-white shadow"
+                            className="absolute inset-0 top-1/2 bg-white shadow-md"
                           />
 
                           <div className="relative bg-white">
@@ -433,34 +412,13 @@ const Navbar = () => {
 
               <div className="ml-6 flex items-center ">
                 <div className="hidden lg:flex lg:flex-1 lg:items-center lg:justify-end lg:space-x-6">
-                  <a
-                    href="#"
-                    className="text-sm font-medium text-gray-700 hover:text-gray-800"
+                  <Button
+                    aria-label="Sign in"
+                    color="gray"
+                    onClick={handleOpen}
                   >
-                    Sign in
-                  </a>
-                  <span aria-hidden="true" className="h-6 w-px bg-gray-200" />
-                  <a
-                    href="#"
-                    className="text-sm font-medium text-gray-700 hover:text-gray-800"
-                  >
-                    Create account
-                  </a>
-                </div>
-
-                <div className="hidden lg:ml-8 lg:flex">
-                  <a
-                    href="#"
-                    className="flex items-center text-gray-700 hover:text-gray-800"
-                  >
-                    <img
-                      alt=""
-                      src="https://tailwindui.com/img/flags/flag-canada.svg"
-                      className="block h-auto w-5 flex-shrink-0"
-                    />
-                    <span className="ml-3 block text-sm font-medium">CAD</span>
-                    <span className="sr-only">, change currency</span>
-                  </a>
+                    <Auth onClose={handleOpen} />
+                  </Button>
                 </div>
 
                 {/* Search */}
