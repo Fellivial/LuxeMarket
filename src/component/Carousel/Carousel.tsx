@@ -10,7 +10,7 @@ const Carousel = () => {
               FIND CLOTHES THAT MATCHES YOUR STYLE
             </p>
           </div>
-          <div className="lg:w-10/12 md:w-full">
+          <div className="lg:w-10/12 md:w-full z-0">
             <p className="text-black opacity-60 text-sm lg:text-lg text-left">
               Browser throught our diserver range of meticoulously carafted
               garments, designed to bring out your individuality and cater to
