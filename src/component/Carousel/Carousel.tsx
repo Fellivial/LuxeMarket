@@ -1,53 +1,54 @@
-import { Carousel } from "@material-tailwind/react";
+import image from "../../assets/carousel.png";
 
-const CarouselCustomNavigation = () => {
+const Carousel = () => {
   return (
-    <Carousel
-      className="rounded-xl max-w-7xl"
-      placeholder="carousel-placeholder"
-      autoplay
-      loop
-      navigation={({ setActiveIndex, activeIndex, length }) => (
-        <div className="absolute bottom-4 left-2/4 z-50 flex -translate-x-2/4 gap-2">
-          {new Array(length).fill("").map((_, i) => (
-            <span
-              key={i}
-              className={`block h-1 cursor-pointer rounded-2xl transition-all content-[''] ${
-                activeIndex === i ? "w-8 bg-white" : "w-4 bg-white/50"
-              }`}
-              onClick={() => setActiveIndex(i)}
-            />
-          ))}
+    <div className="carousel bg-[#F2F0F1] rounded-xl">
+      <div className="flex flex-col md:flex-row">
+        <div className="flex flex-col md:justify-center lg:ml-16 p-4 space-y-3">
+          <div className="lg:w-7/12 md:w-8/12 w-10/12">
+            <p className="text-black text-4xl lg:text-6xl font-bold">
+              FIND CLOTHES THAT MATCHES YOUR STYLE
+            </p>
+          </div>
+          <div className="lg:w-10/12 md:w-full z-0">
+            <p className="text-black opacity-60 text-sm lg:text-lg text-left">
+              Browser throught our diserver range of meticoulously carafted
+              garments, designed to bring out your individuality and cater to
+              your sense of style
+            </p>
+          </div>
+          <div className="bg-black w-full md:w-6/12 lg:w-3/12 h-12 rounded-full flex justify-center">
+            <button className="text-base lg:text-lg text-white font-normal">
+              Shop Now
+            </button>
+          </div>
+          <div className="grid grid-cols-3 divide-x lg:w-9/12 md:w-full divide-gray-400 justify-start items-start">
+            <div className="text-center">
+              <p className="md:text-3xl text-black font-semibold">200+</p>
+              <p className="md:text-sm lg:text-base text-black opacity-60">
+                International Brands
+              </p>
+            </div>
+            <div className="text-center">
+              <p className="md:text-3xl text-black font-semibold">2,000+</p>
+              <p className="md:text-sm lg:text-base text-black opacity-60">
+                High-Quality Products
+              </p>
+            </div>
+            <div className="text-center">
+              <p className="md:text-3xl text-black font-semibold">30,000+</p>
+              <p className="md:text-sm lg:text-base text-black opacity-60">
+                Happy Customers
+              </p>
+            </div>
+          </div>
         </div>
-      )}
-    >
-      <img
-        src="https://images.tokopedia.net/img/cache/1208/NsjrJu/2024/7/15/f1bdc0ba-90b3-475e-963a-35e96cd3a460.jpg.webp?ect=4g"
-        alt="image 1"
-        className="h-full w-full object-cover"
-      />
-      <img
-        src="https://images.tokopedia.net/img/cache/1208/NsjrJu/2024/7/5/14f85c73-d0e4-40b9-b0cb-1bcde18daf04.jpg.webp?ect=4g"
-        alt="image 2"
-        className="h-full w-full object-cover"
-      />
-      <img
-        src="https://images.tokopedia.net/img/cache/1200/NXCtjv/2024/4/26/80dd14ff-85ee-4449-9ebe-a20729d3032c.jpg.webp"
-        alt="image 3"
-        className="h-full w-full object-cover"
-      />
-      <img
-        src="https://images.tokopedia.net/img/cache/1200/NXCtjv/2024/6/19/b7e02d32-489f-47da-84c8-85a68737c53c.jpg.webp"
-        alt="image 4"
-        className="h-full w-full object-cover"
-      />
-      <img
-        src="https://images.tokopedia.net/img/cache/1200/NXCtjv/2024/6/16/4e2d8e1c-ec12-4464-8ba3-58c8470c283a.jpg.webp"
-        alt="image 5"
-        className="h-full w-full object-cover"
-      />
-    </Carousel>
+        <div className=" lg:w-10/12 md:w-11/12 flex justify-center">
+          <img src={image} />
+        </div>
+      </div>
+    </div>
   );
 };
 
-export default CarouselCustomNavigation;
+export default Carousel;

@@ -157,7 +157,6 @@ const navigation = {
 const Navbar = () => {
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen((cur) => !cur);
-  const handleClose = () => setOpen(false);
 
   return (
     <div className="bg-white w-full">
@@ -279,7 +278,9 @@ const Navbar = () => {
 
             <div className="space-y-6 border-t border-gray-200 px-4 py-6">
               <div className="flow-root">
-                <Auth onClose={handleOpen} />
+                <Button onClick={() => handleOpen()}>
+                  <Auth />
+                </Button>
               </div>
             </div>
           </DialogPanel>
@@ -412,12 +413,8 @@ const Navbar = () => {
 
               <div className="ml-6 flex items-center ">
                 <div className="hidden lg:flex lg:flex-1 lg:items-center lg:justify-end lg:space-x-6">
-                  <Button
-                    aria-label="Sign in"
-                    color="gray"
-                    onClick={handleOpen}
-                  >
-                    <Auth onClose={handleOpen} />
+                  <Button aria-label="Sign in" onClick={() => setOpen(true)}>
+                    <Auth />
                   </Button>
                 </div>
 
