@@ -32,13 +32,13 @@ const Auth = () => {
               exit={{ opacity: 0 }}
               className="fixed inset-0 bg-black/30"
             />
-            <div className="fixed inset-0 flex w-screen items-center justify-center p-4">
+            <div className="fixed inset-0 flex w-full items-center justify-center p-4">
               <DialogPanel
                 as={motion.div}
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.95 }}
-                className="max-w-lg space-y-4 bg-white p-12"
+                className="max-w-xl space-y-4 bg-white p-12"
               >
                 <div className="flex justify-end gap-4">
                   <button
@@ -51,7 +51,7 @@ const Auth = () => {
                 <DialogTitle className="text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
                   Sign in to your account
                 </DialogTitle>
-                <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8 ">
+                <div className="flex min-h-full w-full flex-1 flex-col justify-center px-6 py-12 lg:px-8 ">
                   <div className="sm:mx-auto sm:w-full sm:max-w-sm">
                     <form action="#" method="POST" className="space-y-6">
                       <div>

@@ -20,10 +20,10 @@ const Footer = () => {
     <footer className="relative w-full bg-gray-100">
       <div className="mx-auto w-full max-w-7xl px-8 mt-5">
         <div className="grid grid-cols-1 justify-between gap-4 md:grid-cols-2">
-          <a className="mb-6">Luxe.co</a>
+          <a className="mb-6 text-black font-bold text-3xl">Luxe.co</a>
           <div className="grid grid-cols-3 justify-between gap-4">
             {LINKS.map(({ title, items }) => (
-              <ul key={title}>
+              <ul key={title} className="text-black">
                 <p className="mb-3 font-medium opacity-40">{title}</p>
                 {items.map((link) => (
                   <li key={link}>
