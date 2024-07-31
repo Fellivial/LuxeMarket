@@ -156,7 +156,12 @@ const navigation = {
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
-  const handleOpen = () => setOpen((cur) => !cur);
+
+  const [modal, setModal] = useState<string>("modal");
+
+  const HandleLogin = async () => {
+    setModal("modal-open");
+  };
 
   return (
     <div className="bg-white w-full">
@@ -278,8 +283,11 @@ const Navbar = () => {
 
             <div className="space-y-6 border-t border-gray-200 px-4 py-6">
               <div className="flow-root">
-                <Button onClick={() => handleOpen()}>
-                  <Auth />
+                <Button
+                  className="text-black font-semibold"
+                  onClick={() => HandleLogin()}
+                >
+                  Sign In
                 </Button>
               </div>
             </div>
@@ -413,8 +421,12 @@ const Navbar = () => {
 
               <div className="ml-6 flex items-center ">
                 <div className="hidden lg:flex lg:flex-1 lg:items-center lg:justify-end lg:space-x-6">
-                  <Button aria-label="Sign in" onClick={() => setOpen(true)}>
-                    <Auth />
+                  <Button
+                    aria-label="Sign in"
+                    className="text-black font-semibold"
+                    onClick={() => HandleLogin()}
+                  >
+                    Sign in
                   </Button>
                 </div>
 
@@ -447,6 +459,20 @@ const Navbar = () => {
           </div>
         </nav>
       </header>
+
+      <div id="modal-login" className={`modal ${modal}`}>
+        <div className="modal-box bg-white">
+          <div
+            onClick={() => setModal("modal")}
+            className="rounded-ful absolute right-2 top-2 z-50 rounded-3xl  px-2 py-0.5 text-[20px] font-bold  hover:cursor-pointer hover:bg-[rgba(31,64,104,0.8)] "
+          >
+            <p className="" onClick={() => setModal("modal")}>
+              ✕
+            </p>
+          </div>
+          <Auth />
+        </div>
+      </div>
     </div>
   );
 };
