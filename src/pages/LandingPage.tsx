@@ -192,14 +192,22 @@ const allProducts = [
   // More products...
 ];
 
+const images = [
+  "https://images.tokopedia.net/img/cache/1208/NsjrJu/2024/7/15/f1bdc0ba-90b3-475e-963a-35e96cd3a460.jpg.webp?ect=4g",
+  "https://images.tokopedia.net/img/cache/1208/NsjrJu/2024/7/5/14f85c73-d0e4-40b9-b0cb-1bcde18daf04.jpg.webp?ect=4g",
+  "https://images.tokopedia.net/img/cache/1200/NXCtjv/2024/4/26/80dd14ff-85ee-4449-9ebe-a20729d3032c.jpg.webp",
+  "https://images.tokopedia.net/img/cache/1200/NXCtjv/2024/6/19/b7e02d32-489f-47da-84c8-85a68737c53c.jpg.webp",
+  "https://images.tokopedia.net/img/cache/1200/NXCtjv/2024/6/16/4e2d8e1c-ec12-4464-8ba3-58c8470c283a.jpg.webp",
+];
+
 const LandingPage = () => {
   return (
     <Layout>
       <div className="flex flex-col justify-center items-center">
         <div className=" mt-6">
-          <Carousel />
+          <Carousel images={images} />
         </div>
-        <div className="bg-black border shadow-md w-full lg:w-8/12 h-20 flex justify-center items-center mt-6 rounded-md">
+        <div className="bg-black border shadow-md w-full lg:w-9/12 md:max-w-6xl h-20 flex justify-center items-center mt-6 rounded-md">
           <div className="mt-3 lg:mt-0 grid grid-cols-5 lg:gap-x-6 gap-x-4 gap-y-10 w-10/12 md:w-20 md:h-6 lg:w-11/12">
             <img src={Versace} alt="" />
             <img src={Zara} alt="" />
@@ -209,7 +217,7 @@ const LandingPage = () => {
           </div>
         </div>
         <div className="bg-gray-100 mt-6 rounded-md">
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
             <div className="mx-auto max-w-2xl py-16 sm:py-24 lg:max-w-none lg:py-32">
               <h2 className="text-2xl font-bold text-gray-900">Collections</h2>
               <div className="mt-6 grid grid-cols-2 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-5 xl:grid-cols-5 xl:gap-x-8">
@@ -227,7 +235,7 @@ const LandingPage = () => {
           </div>
         </div>
         <div className="bg-white">
-          <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
+          <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl md:max-w-6xl lg:px-8">
             <h2 className="text-2xl font-bold tracking-tight text-gray-900">
               Top Selling
             </h2>
