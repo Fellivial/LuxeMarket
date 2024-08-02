@@ -18,7 +18,7 @@ const Carousel: React.FC<CarouselProps> = ({
     if (autoplay) {
       const interval = setInterval(() => {
         setActiveIndex((prevIndex) => (prevIndex + 1) % images.length);
-      }, 3000);
+      }, 6000);
       return () => clearInterval(interval);
     }
   }, [autoplay, images.length]);

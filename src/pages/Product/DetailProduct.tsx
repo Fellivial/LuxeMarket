@@ -3,6 +3,9 @@ import { StarIcon } from "@heroicons/react/20/solid";
 import { Radio, RadioGroup } from "@headlessui/react";
 
 import Layout from "../../component/Layout/Layout";
+import Count from "../../component/Count/Count";
+import Tabs from "../../component/Tabs/Tabs";
+import { CardItem } from "../../component/Card/Card";
 
 const product = {
   name: "Basic Tee 6-Pack",
@@ -52,6 +55,61 @@ const product = {
   details:
     'The 6-Pack includes two black, two white, and two heather gray Basic Tees. Sign up for our subscription service and be the first to get new, exciting colors, like our upcoming "Charcoal Gray" limited release.',
 };
+
+const semilar = [
+  {
+    id: 1,
+    name: "Basic Tee 6-Pack",
+    href: "#",
+    imageSrc:
+      "https://tailwindui.com/img/ecommerce-images/product-quick-preview-02-detail.jpg",
+    imageAlt: "Front of men's Basic Tee in black.",
+    price: "$192",
+    color: "Black",
+  },
+  {
+    id: 2,
+    name: "Basic Tee",
+    href: "#",
+    imageSrc:
+      "https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-02.jpg",
+    imageAlt: "Front of men's Basic Tee in black.",
+    price: "$35",
+    color: "Black",
+  },
+  {
+    id: 3,
+    name: "Basic Tee",
+    href: "#",
+    imageSrc:
+      "https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-03.jpg",
+    imageAlt: "Front of men's Basic Tee in black.",
+    price: "$35",
+    color: "Black",
+  },
+  {
+    id: 4,
+    name: "Zap Tote Basket",
+    href: "#",
+    imageSrc:
+      "https://tailwindui.com/img/ecommerce-images/shopping-cart-page-04-product-03.jpg",
+    imageAlt: "Front of men's Basic Tee in black.",
+    price: "$140.00",
+    color: "Black",
+  },
+  {
+    id: 5,
+    name: "Throwback Hip Bag",
+    href: "#",
+    imageSrc:
+      "https://tailwindui.com/img/ecommerce-images/shopping-cart-page-04-product-01.jpg",
+    imageAlt: "Front of men's Basic Tee in black.",
+    price: "$90.00",
+    color: "Black",
+  },
+  // More products...
+];
+
 const reviews = { href: "#", average: 4, totalCount: 117 };
 
 function classNames(...classes: any) {
@@ -104,9 +162,9 @@ const DetailProduct = () => {
           </ol>
         </nav>
         <div className=" bg-white w-full h-full">
-          <div className="grid grid-cols-2">
+          <div className="flex flex-col lg:flex-row justify-center items-center">
             {/* Image gallery */}
-            <div className="flex justify-end mt-4 gap-2 sm:px-6 lg:px-8 ">
+            <div className="flex lg:justify-end mt-4 gap-2 sm:px-6 lg:px-8 ">
               <div className="grid w-4/12 justify-items-end flex-shrink-0 grid-cols-1 gap-y-4 lg:gap-y-4">
                 <div className="w-4/12 overflow-hidden rounded-lg">
                   <img
@@ -186,7 +244,7 @@ const DetailProduct = () => {
               </div>
               {/*End Price */}
               {/* Detail */}
-              <div className="mt-10">
+              <div className="mt-6">
                 <div className="mt-4 space-y-6">
                   <p className="text-sm text-gray-600">{product.details}</p>
                 </div>
@@ -242,7 +300,7 @@ const DetailProduct = () => {
                     </a>
                   </div>
 
-                  <fieldset aria-label="Choose a size" className="mt-4">
+                  <fieldset aria-label="Choose a size" className="">
                     <RadioGroup
                       value={selectedSize}
                       onChange={setSelectedSize}
@@ -255,16 +313,16 @@ const DetailProduct = () => {
                           disabled={!size.inStock}
                           className={classNames(
                             size.inStock
-                              ? "cursor-pointer bg-white text-gray-900 shadow-sm"
+                              ? "cursor-pointer h-10  bg-white text-gray-900 shadow-sm"
                               : "cursor-not-allowed bg-gray-50 text-gray-200",
-                            "group relative flex items-center justify-center rounded-xl border px-4 py-3 text-sm font-medium uppercase hover:bg-gray-50 focus:outline-none data-[focus]:ring-2 data-[focus]:ring-slate-400 sm:flex-1 sm:py-6"
+                            "group relative flex items-center justify-center rounded-full border px-4 py-3 text-sm font-medium uppercase hover:bg-gray-50 focus:outline-none data-[focus]:ring-2 data-[focus]:ring-slate-400 sm:flex-1 sm:py-6"
                           )}
                         >
                           <span>{size.name}</span>
                           {size.inStock ? (
                             <span
                               aria-hidden="true"
-                              className="pointer-events-none absolute -inset-px rounded-md border-2 border-transparent group-data-[focus]:border group-data-[checked]:border-slate-400"
+                              className="pointer-events-none absolute -inset-px rounded-full border-2 border-transparent group-data-[focus]:border group-data-[checked]:border-slate-400"
                             />
                           ) : (
                             <span
@@ -292,14 +350,37 @@ const DetailProduct = () => {
                     </RadioGroup>
                   </fieldset>
                 </div>
-
-                <button
-                  type="submit"
-                  className="mt-10 flex w-3/12 items-center justify-center rounded-full border border-transparent bg-[#000000] px-8 py-3 text-base font-medium text-white  focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2"
-                >
-                  Add to bag
-                </button>
+                <div className="flex flex-row mt-6 space-x-4">
+                  <Count />
+                  <button
+                    type="submit"
+                    className=" flex w-40 items-center justify-center rounded-full border border-transparent bg-[#000000] px-8 py-3 text-base font-medium text-white  focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2"
+                  >
+                    Add to bag
+                  </button>
+                </div>
               </form>
+            </div>
+          </div>
+          <div className="bg-white w-full h-full mt-6">
+            <Tabs />
+          </div>
+          <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl md:max-w-6xl lg:px-8">
+            <h2 className="text-6xl text-center font-bold uppercase tracking-tight text-gray-900">
+              you might also like
+            </h2>
+            <div className="mt-6 grid grid-cols-2 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-5 xl:gap-x-8">
+              {semilar.map((product) => (
+                <CardItem
+                  id={product.id}
+                  name={product.name}
+                  href={product.href}
+                  imageSrc={product.imageSrc}
+                  imageAlt={product.imageAlt}
+                  price={product.price}
+                  color={product.color}
+                />
+              ))}
             </div>
           </div>
         </div>

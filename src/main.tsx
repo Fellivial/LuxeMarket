@@ -7,6 +7,6 @@ import DetailProduct from "./pages/Product/DetailProduct.tsx";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
-    <LandingPage />
+    <DetailProduct />
   </React.StrictMode>
 );
