@@ -136,7 +136,7 @@ const Tabs = () => {
 
   const handleLoadMore = () => {
     setReviews((prevReviews) => [...prevReviews, ...moreReviews]);
-    setShowMore(false); // Menghapus tombol "Load More" setelah menampilkan semua ulasan
+    setShowMore(false);
   };
 
   return (
@@ -209,7 +209,6 @@ const Tabs = () => {
                     rating={review.rating}
                     color={review.color}
                     size={review.size}
-                    images={review.images}
                   />
                 ))}
                 {showMore && (

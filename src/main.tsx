@@ -4,9 +4,10 @@ import LandingPage from "./pages/LandingPage.tsx";
 import "./styles/index.css";
 
 import DetailProduct from "./pages/Product/DetailProduct.tsx";
+import Category from "./pages/Category/Category.tsx";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
-    <DetailProduct />
+    <Category />
   </React.StrictMode>
 );

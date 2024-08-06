@@ -94,7 +94,6 @@ interface CardReviewProps {
   rating: number;
   color: string;
   size: string;
-  images?: string[];
 }
 
 const CardReview = ({
@@ -105,18 +104,15 @@ const CardReview = ({
   rating,
   color,
   size,
-  images = [],
 }: CardReviewProps) => {
   const handleEdit = (e: React.MouseEvent) => {
     e.preventDefault();
     console.log("Edit clicked");
-    // Tambahkan logika untuk tindakan Edit di sini
   };
 
   const handleDelete = (e: React.MouseEvent) => {
     e.preventDefault();
     console.log("Delete clicked");
-    // Tambahkan logika untuk tindakan Delete di sini
   };
 
   return (
@@ -176,16 +172,6 @@ const CardReview = ({
         </div>
         <div className="mt-3">
           <p className="text-sm text-gray-600">"{text}"</p>
-        </div>
-        <div className="grid grid-cols-4 gap-2 mt-2">
-          {images.slice(0, 4).map((image, index) => (
-            <img
-              key={index}
-              src={image}
-              alt={`Review image ${index + 1}`}
-              className="w-full h-32 object-cover rounded-md"
-            />
-          ))}
         </div>
       </div>
     </div>
