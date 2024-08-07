@@ -5,9 +5,10 @@ import "./styles/index.css";
 
 import DetailProduct from "./pages/Product/DetailProduct.tsx";
 import Category from "./pages/Category/Category.tsx";
+import Cart from "./pages/Cart/Cart.tsx";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
-    <Category />
+    <Cart />
   </React.StrictMode>
 );
