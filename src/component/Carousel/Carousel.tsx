@@ -1,4 +1,3 @@
-import image from "../../assets/carousel.png";
 import React, { useState, useEffect } from "react";
 
 interface CarouselProps {
@@ -7,11 +6,7 @@ interface CarouselProps {
   loop?: boolean;
 }
 
-const Carousel: React.FC<CarouselProps> = ({
-  images,
-  autoplay = true,
-  loop = true,
-}) => {
+const Carousel: React.FC<CarouselProps> = ({ images, autoplay = true }) => {
   const [activeIndex, setActiveIndex] = useState(0);
 
   useEffect(() => {

@@ -9,13 +9,7 @@ import {
   Button,
 } from "@headlessui/react";
 import { XMarkIcon } from "@heroicons/react/24/outline";
-import {
-  ChevronDownIcon,
-  FunnelIcon,
-  MinusIcon,
-  PlusIcon,
-  Squares2X2Icon,
-} from "@heroicons/react/20/solid";
+import { FunnelIcon, MinusIcon, PlusIcon } from "@heroicons/react/20/solid";
 
 import Layout from "../../component/Layout/Layout";
 
@@ -183,7 +177,7 @@ const UserProfile = () => {
                       </h3>
                       <DisclosurePanel className="pt-6">
                         <div className="space-y-6">
-                          {section.options.map((option, optionIdx) => (
+                          {section.options.map((option) => (
                             <div
                               key={option.value}
                               className="flex items-center"
