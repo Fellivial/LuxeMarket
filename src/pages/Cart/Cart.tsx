@@ -1,7 +1,5 @@
-import React from "react";
 import Layout from "../../component/Layout/Layout";
 import { CardCart } from "../../component/Card/Card";
-import { TagIcon } from "@heroicons/react/20/solid";
 
 const products = [
   {
@@ -99,7 +97,6 @@ const Cart = () => {
                   size={product.size}
                   color={product.color}
                   price={product.price}
-                  quantity={product.quantity}
                 />
               ))}
             </div>

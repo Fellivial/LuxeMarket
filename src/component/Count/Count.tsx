@@ -14,8 +14,8 @@ const Count = () => {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center w-40 h-10 bg-[#F0F0F0] rounded-full">
-      <div className="flex items-center space-x-7 -mt-1">
+    <div className="flex flex-col items-center justify-center bg-[#F0F0F0] rounded-full ">
+      <div className="flex items-center justify-between gap-4 -mt-1">
         <button
           onClick={decrement}
           className="text-2xl font-semibold text-black px-4 py-2"

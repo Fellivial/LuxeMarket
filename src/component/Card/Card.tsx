@@ -192,7 +192,6 @@ interface CardCartProps {
   size: string;
   color: string;
   price: string;
-  quantity: number;
 }
 
 const CardCart = ({
@@ -204,7 +203,6 @@ const CardCart = ({
   size,
   color,
   price,
-  quantity,
 }: CardCartProps) => {
   return (
     // <div className="py-3 px-3 my-4">
@@ -260,9 +258,13 @@ const CardCart = ({
                     <a href={href}>{name}</a>
                   </h3>
                 </div>
-                <p className="mt-1 text-sm text-gray-500">Size: {size}</p>
-                <p className="mt-1 text-sm text-gray-500">Color: {color}</p>
-                <p className="">${price}</p>
+                <p className="mt-1 text-sm font-semibold text-gray-500">
+                  Size: {size}
+                </p>
+                <p className="mt-1 text-sm font-semibold text-gray-500">
+                  Color: {color}
+                </p>
+                <p className="text-lg font-semibold text-black">{price}</p>
               </div>
             </div>
             <div className="flex flex-col justify-between items-end gap-3">
@@ -272,7 +274,7 @@ const CardCart = ({
               >
                 <TrashIcon className="h-5 w-7 text-red-600" />
               </button>
-              <p className="text-gray-500">Qty {quantity}</p>
+              <Count />
             </div>
           </li>
         </ul>
