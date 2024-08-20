@@ -12,6 +12,8 @@ import {
   MenuButton,
   MenuItem,
   MenuItems,
+  Radio,
+  RadioGroup,
 } from "@headlessui/react";
 import { XMarkIcon } from "@heroicons/react/24/outline";
 import {
@@ -26,6 +28,7 @@ import {
 
 import Layout from "../../component/Layout/Layout";
 import { CardItem } from "../../component/Card/Card";
+import PriceRangeSlider from "../../component/Range/PriceRangeSlider";
 
 const sortOptions = [
   { name: "Most Popular", href: "#", current: true },
@@ -41,19 +44,15 @@ const subCategories = [
   { name: "Hip Bags", href: "#" },
   { name: "Laptop Sleeves", href: "#" },
 ];
-const filters = [
+
+const price = [
   {
-    id: "color",
-    name: "Color",
-    options: [
-      { value: "white", label: "White", checked: false },
-      { value: "beige", label: "Beige", checked: false },
-      { value: "blue", label: "Blue", checked: true },
-      { value: "brown", label: "Brown", checked: false },
-      { value: "green", label: "Green", checked: false },
-      { value: "purple", label: "Purple", checked: false },
-    ],
+    id: "price",
+    name: "Price",
   },
+];
+
+const category = [
   {
     id: "category",
     name: "Category",
@@ -65,19 +64,54 @@ const filters = [
       { value: "accessories", label: "Accessories", checked: false },
     ],
   },
+];
+
+const sizes = [
   {
     id: "size",
     name: "Size",
     options: [
-      { value: "2l", label: "2L", checked: false },
-      { value: "6l", label: "6L", checked: false },
-      { value: "12l", label: "12L", checked: false },
-      { value: "18l", label: "18L", checked: false },
-      { value: "20l", label: "20L", checked: false },
-      { value: "40l", label: "40L", checked: true },
+      { name: "XXS", inStock: true },
+      { name: "XS", inStock: true },
+      { name: "S", inStock: true },
+      { name: "M", inStock: true },
+      { name: "L", inStock: true },
+      { name: "XL", inStock: true },
+      { name: "2XL", inStock: true },
+      { name: "3XL", inStock: true },
     ],
   },
 ];
+
+const colors = [
+  {
+    id: "color",
+    name: "Color",
+    options: [
+      { name: "White", class: "bg-white", selectedClass: "ring-gray-400" },
+      { name: "Gray", class: "bg-gray-200", selectedClass: "ring-gray-400" },
+      { name: "Black", class: "bg-gray-900", selectedClass: "ring-gray-900" },
+      { name: "Red", class: "bg-red-600", selectedClass: "ring-gray-600" },
+      { name: "Blue", class: "bg-blue-700", selectedClass: "ring-gray-600" },
+      {
+        name: "Purple",
+        class: "bg-purple-900",
+        selectedClass: "ring-gray-600",
+      },
+      {
+        name: "Yellow",
+        class: "bg-yellow-500",
+        selectedClass: "ring-gray-600",
+      },
+      {
+        name: "Pink",
+        class: "bg-pink-600",
+        selectedClass: "ring-gray-600",
+      },
+    ],
+  },
+];
+
 const allProducts = [
   {
     id: 1,
@@ -169,6 +203,9 @@ function classNames(...classes: any) {
 
 const Category = () => {
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
+  const [selectedColor, setSelectedColor] = useState(colors[0]);
+  const [selectedSize, setSelectedSize] = useState(sizes[2]);
+
   return (
     <Layout>
       <div className="bg-white">
@@ -216,15 +253,15 @@ const Category = () => {
                       </li>
                     ))}
                   </ul>
-
-                  {filters.map((section) => (
+                  {/* Price map */}
+                  {price.map((section) => (
                     <Disclosure
                       key={section.id}
                       as="div"
-                      className="border-t border-gray-200 px-4 py-6"
+                      className="border-b border-gray-200 px-4 py-6"
                     >
-                      <h3 className="-mx-2 -my-3 flow-root">
-                        <DisclosureButton className="group flex w-full items-center justify-between bg-white px-2 py-3 text-gray-400 hover:text-gray-500">
+                      <h3 className="-my-3 flow-root">
+                        <DisclosureButton className="group flex w-full items-center justify-between bg-white py-3 text-sm text-gray-400 hover:text-gray-500">
                           <span className="font-medium text-gray-900">
                             {section.name}
                           </span>
@@ -240,30 +277,174 @@ const Category = () => {
                           </span>
                         </DisclosureButton>
                       </h3>
-                      <DisclosurePanel className="pt-6">
-                        <div className="space-y-6">
-                          {section.options.map((option, optionIdx) => (
-                            <div
-                              key={option.value}
-                              className="flex items-center"
-                            >
-                              <input
-                                defaultValue={option.value}
-                                defaultChecked={option.checked}
-                                id={`filter-mobile-${section.id}-${optionIdx}`}
-                                name={`${section.id}[]`}
-                                type="checkbox"
-                                className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
-                              />
-                              <label
-                                htmlFor={`filter-mobile-${section.id}-${optionIdx}`}
-                                className="ml-3 min-w-0 flex-1 text-gray-500"
-                              >
-                                {option.label}
-                              </label>
-                            </div>
-                          ))}
+                      <DisclosurePanel>
+                        <div>
+                          <div>
+                            <PriceRangeSlider />
+                          </div>
                         </div>
+                      </DisclosurePanel>
+                    </Disclosure>
+                  ))}
+                  {/* Color map */}
+                  {colors.map((section) => (
+                    <Disclosure
+                      key={section.id}
+                      as="div"
+                      className="border-b border-gray-200 px-4 py-6"
+                    >
+                      <h3 className="-my-3 flow-root">
+                        <DisclosureButton className="group flex w-full items-center justify-between bg-white py-3 text-sm text-gray-400 hover:text-gray-500">
+                          <span className="font-medium text-gray-900">
+                            {section.name}
+                          </span>
+                          <span className="ml-6 flex items-center">
+                            <PlusIcon
+                              aria-hidden="true"
+                              className="h-5 w-5 group-data-[open]:hidden"
+                            />
+                            <MinusIcon
+                              aria-hidden="true"
+                              className="h-5 w-5 [.group:not([data-open])_&]:hidden"
+                            />
+                          </span>
+                        </DisclosureButton>
+                      </h3>
+                      <DisclosurePanel>
+                        <div>
+                          <fieldset aria-label="Chose a color" className="mt-4">
+                            <RadioGroup
+                              value={selectedColor}
+                              onChange={setSelectedColor}
+                              className="grid grid-cols-5 items-center gap-3"
+                            >
+                              {section.options.map((color) => (
+                                <Radio
+                                  key={color.name}
+                                  value={color}
+                                  aria-label={color.name}
+                                  className={classNames(
+                                    color.selectedClass,
+                                    "relative -m-0.5 flex cursor-pointer items-center justify-center rounded-full p-0.5 focus:outline-none data-[checked]:ring-2 data-[focus]:data-[checked]:ring data-[focus]:data-[checked]:ring-offset-1"
+                                  )}
+                                >
+                                  <span
+                                    aria-hidden="true"
+                                    className={classNames(
+                                      color.class,
+                                      "h-8 w-8 rounded-full border border-black border-opacity-10"
+                                    )}
+                                  />
+                                </Radio>
+                              ))}
+                            </RadioGroup>
+                          </fieldset>
+                        </div>
+                      </DisclosurePanel>
+                    </Disclosure>
+                  ))}
+                  {/* Category map */}
+                  {category.map((section) => (
+                    <Disclosure
+                      key={section.id}
+                      as="div"
+                      className="border-b border-gray-200 px-4 py-6"
+                    >
+                      <h3 className="-my-3 flow-root">
+                        <DisclosureButton className="group flex w-full items-center justify-between bg-white py-3 text-sm text-gray-400 hover:text-gray-500">
+                          <span className="font-medium text-gray-900">
+                            {section.name}
+                          </span>
+                          <span className="ml-6 flex items-center">
+                            <PlusIcon
+                              aria-hidden="true"
+                              className="h-5 w-5 group-data-[open]:hidden"
+                            />
+                            <MinusIcon
+                              aria-hidden="true"
+                              className="h-5 w-5 [.group:not([data-open])_&]:hidden"
+                            />
+                          </span>
+                        </DisclosureButton>
+                      </h3>
+                      <DisclosurePanel>
+                        <div>
+                          <fieldset aria-label="Choose a size" className="mt-4">
+                            <RadioGroup>
+                              {section.options.map(
+                                (categorys, categorysIdx) => (
+                                  <div>
+                                    <input
+                                      defaultValue={categorys.value}
+                                      defaultChecked={categorys.checked}
+                                      id={`filter-${section.id}-${categorysIdx}`}
+                                      name={`${section.id}[]`}
+                                      type="checkbox"
+                                      className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
+                                    />
+                                    <label
+                                      htmlFor={`filter-${section.id}-${categorysIdx}`}
+                                      className="ml-3 text-sm text-gray-600"
+                                    >
+                                      {categorys.label}
+                                    </label>
+                                  </div>
+                                )
+                              )}
+                            </RadioGroup>
+                          </fieldset>
+                        </div>
+                      </DisclosurePanel>
+                    </Disclosure>
+                  ))}
+                  {/* Size map */}
+                  {sizes.map((section) => (
+                    <Disclosure
+                      key={section.id}
+                      as="div"
+                      className="border-b border-gray-200 px-4 py-6"
+                    >
+                      <h3 className="-my-3 flow-root">
+                        <DisclosureButton className="group flex w-full items-center justify-between bg-white py-3 text-sm text-gray-400 hover:text-gray-500">
+                          <span className="font-medium text-gray-900">
+                            {section.name}
+                          </span>
+                          <span className="ml-6 flex items-center">
+                            <PlusIcon
+                              aria-hidden="true"
+                              className="h-5 w-5 group-data-[open]:hidden"
+                            />
+                            <MinusIcon
+                              aria-hidden="true"
+                              className="h-5 w-5 [.group:not([data-open])_&]:hidden"
+                            />
+                          </span>
+                        </DisclosureButton>
+                      </h3>
+                      <DisclosurePanel>
+                        <fieldset aria-label="Choose a size" className="mt-4">
+                          <RadioGroup
+                            value={selectedSize}
+                            onChange={setSelectedSize}
+                            className="grid grid-cols-4 gap-4 sm:grid-cols-8 lg:grid-cols-4"
+                          >
+                            {section.options.map((size) => (
+                              <Radio
+                                key={size.name}
+                                value={size}
+                                disabled={!size.inStock}
+                                className={classNames(
+                                  size.inStock
+                                    ? "cursor-pointer bg-white text-gray-900 shadow-sm h-8"
+                                    : "cursor-not-allowed bg-gray-50 text-gray-200",
+                                  "group relative flex items-center justify-center rounded-full border px-4 py-3 text-sm font-medium uppercase hover:bg-gray-50 focus:outline-none data-[focus]:ring-2 data-[focus]:ring-slate-400 sm:flex-1 sm:py-6"
+                                )}
+                              >
+                                <span>{size.name}</span>
+                              </Radio>
+                            ))}
+                          </RadioGroup>
+                        </fieldset>
                       </DisclosurePanel>
                     </Disclosure>
                   ))}
@@ -352,11 +533,12 @@ const Category = () => {
                     ))}
                   </ul>
 
-                  {filters.map((section) => (
+                  {/* Price map */}
+                  {price.map((section) => (
                     <Disclosure
                       key={section.id}
                       as="div"
-                      className="border-b border-gray-200 py-6"
+                      className="border-b border-gray-200 px-4 py-6"
                     >
                       <h3 className="-my-3 flow-root">
                         <DisclosureButton className="group flex w-full items-center justify-between bg-white py-3 text-sm text-gray-400 hover:text-gray-500">
@@ -375,30 +557,174 @@ const Category = () => {
                           </span>
                         </DisclosureButton>
                       </h3>
-                      <DisclosurePanel className="pt-6">
-                        <div className="space-y-4">
-                          {section.options.map((option, optionIdx) => (
-                            <div
-                              key={option.value}
-                              className="flex items-center"
-                            >
-                              <input
-                                defaultValue={option.value}
-                                defaultChecked={option.checked}
-                                id={`filter-${section.id}-${optionIdx}`}
-                                name={`${section.id}[]`}
-                                type="checkbox"
-                                className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
-                              />
-                              <label
-                                htmlFor={`filter-${section.id}-${optionIdx}`}
-                                className="ml-3 text-sm text-gray-600"
-                              >
-                                {option.label}
-                              </label>
-                            </div>
-                          ))}
+                      <DisclosurePanel>
+                        <div>
+                          <div>
+                            <PriceRangeSlider />
+                          </div>
                         </div>
+                      </DisclosurePanel>
+                    </Disclosure>
+                  ))}
+                  {/* Color map */}
+                  {colors.map((section) => (
+                    <Disclosure
+                      key={section.id}
+                      as="div"
+                      className="border-b border-gray-200 px-4 py-6"
+                    >
+                      <h3 className="-my-3 flow-root">
+                        <DisclosureButton className="group flex w-full items-center justify-between bg-white py-3 text-sm text-gray-400 hover:text-gray-500">
+                          <span className="font-medium text-gray-900">
+                            {section.name}
+                          </span>
+                          <span className="ml-6 flex items-center">
+                            <PlusIcon
+                              aria-hidden="true"
+                              className="h-5 w-5 group-data-[open]:hidden"
+                            />
+                            <MinusIcon
+                              aria-hidden="true"
+                              className="h-5 w-5 [.group:not([data-open])_&]:hidden"
+                            />
+                          </span>
+                        </DisclosureButton>
+                      </h3>
+                      <DisclosurePanel>
+                        <div>
+                          <fieldset aria-label="Chose a color" className="mt-4">
+                            <RadioGroup
+                              value={selectedColor}
+                              onChange={setSelectedColor}
+                              className="grid grid-cols-5 items-center gap-3"
+                            >
+                              {section.options.map((color) => (
+                                <Radio
+                                  key={color.name}
+                                  value={color}
+                                  aria-label={color.name}
+                                  className={classNames(
+                                    color.selectedClass,
+                                    "relative -m-0.5 flex cursor-pointer items-center justify-center rounded-full p-0.5 focus:outline-none data-[checked]:ring-2 data-[focus]:data-[checked]:ring data-[focus]:data-[checked]:ring-offset-1"
+                                  )}
+                                >
+                                  <span
+                                    aria-hidden="true"
+                                    className={classNames(
+                                      color.class,
+                                      "h-8 w-8 rounded-full border border-black border-opacity-10"
+                                    )}
+                                  />
+                                </Radio>
+                              ))}
+                            </RadioGroup>
+                          </fieldset>
+                        </div>
+                      </DisclosurePanel>
+                    </Disclosure>
+                  ))}
+                  {/* Category map */}
+                  {category.map((section) => (
+                    <Disclosure
+                      key={section.id}
+                      as="div"
+                      className="border-b border-gray-200 px-4 py-6"
+                    >
+                      <h3 className="-my-3 flow-root">
+                        <DisclosureButton className="group flex w-full items-center justify-between bg-white py-3 text-sm text-gray-400 hover:text-gray-500">
+                          <span className="font-medium text-gray-900">
+                            {section.name}
+                          </span>
+                          <span className="ml-6 flex items-center">
+                            <PlusIcon
+                              aria-hidden="true"
+                              className="h-5 w-5 group-data-[open]:hidden"
+                            />
+                            <MinusIcon
+                              aria-hidden="true"
+                              className="h-5 w-5 [.group:not([data-open])_&]:hidden"
+                            />
+                          </span>
+                        </DisclosureButton>
+                      </h3>
+                      <DisclosurePanel>
+                        <div>
+                          <fieldset aria-label="Choose a size" className="mt-4">
+                            <RadioGroup>
+                              {section.options.map(
+                                (categorys, categorysIdx) => (
+                                  <div>
+                                    <input
+                                      defaultValue={categorys.value}
+                                      defaultChecked={categorys.checked}
+                                      id={`filter-${section.id}-${categorysIdx}`}
+                                      name={`${section.id}[]`}
+                                      type="checkbox"
+                                      className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
+                                    />
+                                    <label
+                                      htmlFor={`filter-${section.id}-${categorysIdx}`}
+                                      className="ml-3 text-sm text-gray-600"
+                                    >
+                                      {categorys.label}
+                                    </label>
+                                  </div>
+                                )
+                              )}
+                            </RadioGroup>
+                          </fieldset>
+                        </div>
+                      </DisclosurePanel>
+                    </Disclosure>
+                  ))}
+                  {/* Size map */}
+                  {sizes.map((section) => (
+                    <Disclosure
+                      key={section.id}
+                      as="div"
+                      className="border-b border-gray-200 px-4 py-6"
+                    >
+                      <h3 className="-my-3 flow-root">
+                        <DisclosureButton className="group flex w-full items-center justify-between bg-white py-3 text-sm text-gray-400 hover:text-gray-500">
+                          <span className="font-medium text-gray-900">
+                            {section.name}
+                          </span>
+                          <span className="ml-6 flex items-center">
+                            <PlusIcon
+                              aria-hidden="true"
+                              className="h-5 w-5 group-data-[open]:hidden"
+                            />
+                            <MinusIcon
+                              aria-hidden="true"
+                              className="h-5 w-5 [.group:not([data-open])_&]:hidden"
+                            />
+                          </span>
+                        </DisclosureButton>
+                      </h3>
+                      <DisclosurePanel>
+                        <fieldset aria-label="Choose a size" className="mt-4">
+                          <RadioGroup
+                            value={selectedSize}
+                            onChange={setSelectedSize}
+                            className="grid grid-cols-4 gap-4 sm:grid-cols-8 lg:grid-cols-4"
+                          >
+                            {section.options.map((size) => (
+                              <Radio
+                                key={size.name}
+                                value={size}
+                                disabled={!size.inStock}
+                                className={classNames(
+                                  size.inStock
+                                    ? "cursor-pointer bg-white text-gray-900 shadow-sm h-8"
+                                    : "cursor-not-allowed bg-gray-50 text-gray-200",
+                                  "group relative flex items-center justify-center rounded-full border px-4 py-3 text-sm font-medium uppercase hover:bg-gray-50 focus:outline-none data-[focus]:ring-2 data-[focus]:ring-slate-400 sm:flex-1 sm:py-6"
+                                )}
+                              >
+                                <span>{size.name}</span>
+                              </Radio>
+                            ))}
+                          </RadioGroup>
+                        </fieldset>
                       </DisclosurePanel>
                     </Disclosure>
                   ))}

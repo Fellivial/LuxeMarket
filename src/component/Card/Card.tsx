@@ -134,6 +134,7 @@ const CardReview = ({
                 }`}
               />
             ))}
+            <p className="text-xs ml-1">{date}</p>
           </div>
           <Menu as="div" className="relative inline-block text-left">
             <MenuButton className="inline-flex w-full justify-center gap-x-1.5 rounded-md bg-white text-sm font-semibold text-gray-900 hover:bg-gray-50">
@@ -172,7 +173,7 @@ const CardReview = ({
         </div>
         <div>
           <p className="text-xs text-gray-500">
-            variant: {date} | {color}, {size}
+            variant: {color}, {size}
           </p>
         </div>
         <div className="mt-3">
