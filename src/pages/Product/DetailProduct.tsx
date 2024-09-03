@@ -4,7 +4,7 @@ import { Radio, RadioGroup } from "@headlessui/react";
 
 import Layout from "../../component/Layout/Layout";
 import Count from "../../component/Count/Count";
-import Tabs from "../../component/Tabs/Tabs";
+import { Tabs } from "../../component/Tabs/Tabs";
 import { CardItem } from "../../component/Card/Card";
 
 const product = {

@@ -1,8 +1,10 @@
+import { TabProfile } from "../../component/Tabs/Tabs";
+
 const Setting = () => {
   return (
     <div>
       <div>
-        <p>Setting</p>
+        <TabProfile />
       </div>
     </div>
   );

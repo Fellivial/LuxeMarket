@@ -5,6 +5,7 @@ import { CardReview } from "../Card/Card";
 import {
   AdjustmentsVerticalIcon,
   ChevronDownIcon,
+  PaperClipIcon,
 } from "@heroicons/react/20/solid";
 
 const initialReviews = [
@@ -278,4 +279,155 @@ const Tabs = () => {
   );
 };
 
-export default Tabs;
+const TabProfile = () => {
+  const [activeTab, setActiveTab] = useState("tab1");
+  const [reviews, setReviews] = useState(initialReviews);
+  const [showMore, setShowMore] = useState(true);
+
+  const handleTabClick = (tab: string) => {
+    setActiveTab(tab);
+  };
+
+  const handleLoadMore = () => {
+    setReviews((prevReviews) => [...prevReviews, ...moreReviews]);
+    setShowMore(false);
+  };
+  return (
+    <div className="flex flex-col items-center justify-center p-4">
+      <div className="w-full max-w-7xl">
+        <div className="flex justify-around border-b border-gray-300 mb-4">
+          <button
+            onClick={() => handleTabClick("tab1")}
+            className={`px-4 py-2 -mb-px border-b-2 transition-colors duration-300 ${
+              activeTab === "tab1"
+                ? "border-blue-500 text-blue-500"
+                : "border-transparent text-gray-500 hover:text-blue-500"
+            }`}
+          >
+            Biodata
+          </button>
+          <button
+            onClick={() => handleTabClick("tab2")}
+            className={`px-4 py-2 -mb-px border-b-2 transition-colors duration-300 ${
+              activeTab === "tab2"
+                ? "border-blue-500 text-blue-500"
+                : "border-transparent text-gray-500 hover:text-blue-500"
+            }`}
+          >
+            Address List
+          </button>
+          <button
+            onClick={() => handleTabClick("tab3")}
+            className={`px-4 py-2 -mb-px border-b-2 transition-colors duration-300 ${
+              activeTab === "tab3"
+                ? "border-blue-500 text-blue-500"
+                : "border-transparent text-gray-500 hover:text-blue-500"
+            }`}
+          >
+            Payment
+          </button>
+          <button
+            onClick={() => handleTabClick("tab4")}
+            className={`px-4 py-2 -mb-px border-b-2 transition-colors duration-300 ${
+              activeTab === "tab4"
+                ? "border-blue-500 text-blue-500"
+                : "border-transparent text-gray-500 hover:text-blue-500"
+            }`}
+          >
+            Bank Account
+          </button>
+          <button
+            onClick={() => handleTabClick("tab5")}
+            className={`px-4 py-2 -mb-px border-b-2 transition-colors duration-300 ${
+              activeTab === "tab5"
+                ? "border-blue-500 text-blue-500"
+                : "border-transparent text-gray-500 hover:text-blue-500"
+            }`}
+          >
+            Notifications
+          </button>
+        </div>
+        <div className="p-4">
+          {activeTab === "tab1" && (
+            <div>
+              <div className="grid grid-cols-2">
+                <div className="w-8/12 h-72 border rounded-xl mx-auto">
+                  <div className="flex flex-col items-center ">
+                    <div className="h-64 w-44 mt-3 overflow-hidden rounded-lg">
+                      <img
+                        alt=""
+                        src="https://tailwindui.com/img/ecommerce-images/home-page-03-hero-image-tile-02.jpg"
+                        className="h-full w-full object-cover object-center"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div>
+                  <div className="px-4 sm:px-0">
+                    <h3 className="text-base font-semibold leading-7 text-gray-900">
+                      Biodata Information
+                    </h3>
+                  </div>
+                  <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+                    <dt className="text-sm font-medium leading-6 text-gray-900">
+                      Full name
+                    </dt>
+                    <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">
+                      Felivial
+                    </dd>
+                    <dt className="text-sm font-medium leading-6 text-gray-900">
+                      Birth Date
+                    </dt>
+                    <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">
+                      12/05/2000
+                    </dd>
+                    <dt className="text-sm font-medium leading-6 text-gray-900">
+                      Gender
+                    </dt>
+                    <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">
+                      Male
+                    </dd>
+                  </div>
+                  <div className="mt-6 border-t border-gray-100">
+                    <div className="px-4 sm:px-0">
+                      <h3 className="text-base font-semibold leading-7 text-gray-900">
+                        Contact Information
+                      </h3>
+                    </div>
+                    <dl className="divide-y divide-gray-100">
+                      <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+                        <dt className="text-sm font-medium leading-6 text-gray-900">
+                          Email
+                        </dt>
+                        <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">
+                          Fellivial@gmail.com
+                        </dd>
+                        <dt className="text-sm font-medium leading-6 text-gray-900">
+                          Phone Number
+                        </dt>
+                        <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">
+                          6281234567890
+                        </dd>
+                      </div>
+                    </dl>
+                    <div>
+                      <button className="w-44 rounded-xl h-9 text-black bg-white border-gray-300 border shadow-sm font-semibold text-sm">
+                        Edit Profile
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          )}
+          {activeTab === "tab2" && <div>Konten Tab 2</div>}
+          {activeTab === "tab3" && <div>Konten Tab 3</div>}
+          {activeTab === "tab4" && <div>Konten Tab 4</div>}
+          {activeTab === "tab5" && <div>Konten Tab 5</div>}
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export { Tabs, TabProfile };
