@@ -1,11 +1,10 @@
 // src/components/Tabs.tsx
 import { useState } from "react";
-import { CardReview } from "../Card/Card";
+import { CardReview, CardAddress } from "../Card/Card";
 
 import {
   AdjustmentsVerticalIcon,
   ChevronDownIcon,
-  PaperClipIcon,
 } from "@heroicons/react/20/solid";
 
 const initialReviews = [
@@ -138,6 +137,30 @@ const product = {
   details:
     'The 6-Pack includes two black, two white, and two heather gray Basic Tees. Sign up for our subscription service and be the first to get new, exciting colors, like our upcoming "Charcoal Gray" limited release.',
 };
+
+const initialAddress = [
+  {
+    id: "1",
+    name: "Sabrina Pruitt",
+    label: "659 Woodpoint Road, Springville, New Hampshire",
+    phone: "+1 (809) 508-3487",
+    address: "659 Woodpoint Road, Springville, New Hampshire, 4785",
+  },
+  {
+    id: "2",
+    name: "Essie Camacho",
+    label: "456 Cedar Street, Chamberino, Nebraska",
+    phone: "+1 (952) 453-3433",
+    address: "456 Cedar Street, Chamberino, Nebraska, 6063",
+  },
+  {
+    id: "3",
+    name: "Sherri Hampton",
+    label: "992 Lancaster Avenue, Dotsero, South Carolina",
+    phone: "+1 (998) 448-2336",
+    address: "992 Lancaster Avenue, Dotsero, South Carolina, 5722",
+  },
+];
 
 const Tabs = () => {
   const [activeTab, setActiveTab] = useState("tab2");
@@ -281,17 +304,12 @@ const Tabs = () => {
 
 const TabProfile = () => {
   const [activeTab, setActiveTab] = useState("tab1");
-  const [reviews, setReviews] = useState(initialReviews);
-  const [showMore, setShowMore] = useState(true);
+  const [address] = useState(initialAddress);
 
   const handleTabClick = (tab: string) => {
     setActiveTab(tab);
   };
 
-  const handleLoadMore = () => {
-    setReviews((prevReviews) => [...prevReviews, ...moreReviews]);
-    setShowMore(false);
-  };
   return (
     <div className="flex flex-col items-center justify-center p-4">
       <div className="w-full max-w-7xl">
@@ -351,9 +369,9 @@ const TabProfile = () => {
           {activeTab === "tab1" && (
             <div>
               <div className="grid grid-cols-2">
-                <div className="w-8/12 h-72 border rounded-xl mx-auto">
+                <div className="w-6/12 h-72 border rounded-xl mx-auto">
                   <div className="flex flex-col items-center ">
-                    <div className="h-64 w-44 mt-3 overflow-hidden rounded-lg">
+                    <div className="h-64 w-44 mt-4 overflow-hidden rounded-lg">
                       <img
                         alt=""
                         src="https://tailwindui.com/img/ecommerce-images/home-page-03-hero-image-tile-02.jpg"
@@ -420,7 +438,35 @@ const TabProfile = () => {
               </div>
             </div>
           )}
-          {activeTab === "tab2" && <div>Konten Tab 2</div>}
+          {activeTab === "tab2" && (
+            <div>
+              <div className="flex flex-col justify-center">
+                <div className="flex flex-row justify-between">
+                  <div>
+                    <p className="text-black font-semibold text-2xl">
+                      My Address
+                    </p>
+                  </div>
+                  <div className="form-control">
+                    <button className="btn text-white bg-black rounded-2xl">
+                      Add New Address
+                    </button>
+                  </div>
+                </div>
+                <div className="mt-6 grid grid-rows-1 sm:grid-rows-2 lg:grid-rows-1">
+                  {address.map((address) => (
+                    <CardAddress
+                      id={address.id}
+                      name={address.name}
+                      label={address.label}
+                      phone={address.phone}
+                      address={address.address}
+                    />
+                  ))}
+                </div>
+              </div>
+            </div>
+          )}
           {activeTab === "tab3" && <div>Konten Tab 3</div>}
           {activeTab === "tab4" && <div>Konten Tab 4</div>}
           {activeTab === "tab5" && <div>Konten Tab 5</div>}
