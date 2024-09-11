@@ -1,6 +1,6 @@
 // src/components/Tabs.tsx
 import { useState } from "react";
-import { CardReview, CardAddress } from "../Card/Card";
+import { CardReview, CardAddress, CardBank } from "../Card/Card";
 
 import {
   AdjustmentsVerticalIcon,
@@ -162,6 +162,26 @@ const initialAddress = [
   },
 ];
 
+const bankAccount = [
+  {
+    id: "1",
+    label: "PT. BANK RAKYAT INDONESIA (BRI) (PERSERO)",
+    accountNumber: "1234567890",
+    name: "John Doe",
+    imageSrc: "https://images.tokopedia.net/img/icon-bri.gif",
+    imageAlt: "PT. BANK RAKYAT INDONESIA",
+  },
+  {
+    id: "2",
+    label: "PT. Bank Central Asia",
+    accountNumber: "981235849",
+    name: "Essie Camacho",
+    imageSrc:
+      "https://deo.shopeemobile.com/shopee/shopee-shopeepayfe-live-id/spba/bank/icon/bank_bca.png",
+    imageAlt: "PT. Bank Central Asia",
+  },
+];
+
 const Tabs = () => {
   const [activeTab, setActiveTab] = useState("tab2");
   const [reviews, setReviews] = useState(initialReviews);
@@ -305,6 +325,7 @@ const Tabs = () => {
 const TabProfile = () => {
   const [activeTab, setActiveTab] = useState("tab1");
   const [address] = useState(initialAddress);
+  const [bankAccounts] = useState(bankAccount);
 
   const handleTabClick = (tab: string) => {
     setActiveTab(tab);
@@ -342,22 +363,12 @@ const TabProfile = () => {
                 : "border-transparent text-gray-500 hover:text-blue-500"
             }`}
           >
-            Payment
+            Bank Account
           </button>
           <button
             onClick={() => handleTabClick("tab4")}
             className={`px-4 py-2 -mb-px border-b-2 transition-colors duration-300 ${
               activeTab === "tab4"
-                ? "border-blue-500 text-blue-500"
-                : "border-transparent text-gray-500 hover:text-blue-500"
-            }`}
-          >
-            Bank Account
-          </button>
-          <button
-            onClick={() => handleTabClick("tab5")}
-            className={`px-4 py-2 -mb-px border-b-2 transition-colors duration-300 ${
-              activeTab === "tab5"
                 ? "border-blue-500 text-blue-500"
                 : "border-transparent text-gray-500 hover:text-blue-500"
             }`}
@@ -467,9 +478,37 @@ const TabProfile = () => {
               </div>
             </div>
           )}
-          {activeTab === "tab3" && <div>Konten Tab 3</div>}
-          {activeTab === "tab4" && <div>Konten Tab 4</div>}
-          {activeTab === "tab5" && (
+          {activeTab === "tab3" && (
+            <div>
+              <div className="flex flex-col justify-center">
+                <div className="flex flex-row justify-between">
+                  <div>
+                    <p className="text-black font-semibold text-2xl">
+                      You can keep max 3 bank accounts.
+                    </p>
+                  </div>
+                  <div className="form-control">
+                    <button className="btn text-white bg-black rounded-2xl">
+                      add other accounts
+                    </button>
+                  </div>
+                </div>
+                <div className="mt-6 grid grid-rows-1 sm:grid-rows-2 lg:grid-rows-1">
+                  {bankAccounts.map((bank) => (
+                    <CardBank
+                      id={bank.id}
+                      label={bank.label}
+                      accountNumber={bank.accountNumber}
+                      name={bank.name}
+                      imageSrc={bank.imageSrc}
+                      imageAlt={bank.imageAlt}
+                    />
+                  ))}
+                </div>
+              </div>
+            </div>
+          )}
+          {activeTab === "tab4" && (
             <div>
               <div className="border-b border-gray-900/10 pb-12">
                 <h2 className="text-base font-semibold leading-7 text-gray-900">
@@ -528,16 +567,6 @@ const TabProfile = () => {
                             Get notified when getting information about upcoming
                             promos and offers.
                           </p>
-                        </div>
-                      </div>
-                      <div className="relative flex gap-x-3">
-                        <div className="flex h-6 items-center">
-                          <input
-                            id="offers"
-                            name="offers"
-                            type="checkbox"
-                            className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600"
-                          />
                         </div>
                       </div>
                     </div>
