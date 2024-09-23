@@ -81,7 +81,7 @@ const UserProfile = () => {
       case "Setting":
         return <Setting />;
       default:
-        return <div>Select a filter to see the content.</div>;
+        return <Setting />;
     }
   };
 
