@@ -385,7 +385,7 @@ const TabProfile = () => {
                     <div className="h-64 w-44 mt-4 overflow-hidden rounded-lg">
                       <img
                         alt=""
-                        src="https://tailwindui.com/img/ecommerce-images/home-page-03-hero-image-tile-02.jpg"
+                        src="https://tailwindui.com/plus/img/ecommerce-images/home-page-03-hero-image-tile-01.jpg"
                         className="h-full w-full object-cover object-center"
                       />
                     </div>

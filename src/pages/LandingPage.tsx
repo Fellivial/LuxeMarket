@@ -13,7 +13,7 @@ const callouts = [
     name: "Desk and Office",
     description: "Work from home accessories",
     imageSrc:
-      "https://tailwindui.com/img/ecommerce-images/home-page-02-edition-01.jpg",
+      "https://tailwindui.com/plus/img/ecommerce-images/home-page-02-edition-01.jpg",
     imageAlt:
       "Desk with leather desk pad, walnut desk organizer, wireless keyboard and mouse, and porcelain mug.",
     href: "#",
@@ -22,7 +22,7 @@ const callouts = [
     name: "Self-Improvement",
     description: "Journals and note-taking",
     imageSrc:
-      "https://tailwindui.com/img/ecommerce-images/home-page-02-edition-02.jpg",
+      "https://tailwindui.com/plus/img/ecommerce-images/home-page-02-edition-02.jpg",
     imageAlt:
       "Wood table with porcelain mug, leather journal, brass pen, leather key ring, and a houseplant.",
     href: "#",
@@ -31,7 +31,7 @@ const callouts = [
     name: "Travel",
     description: "Daily commute essentials",
     imageSrc:
-      "https://tailwindui.com/img/ecommerce-images/home-page-02-edition-03.jpg",
+      "https://tailwindui.com/plus/img/ecommerce-images/home-page-02-edition-03.jpg",
     imageAlt: "Collection of four insulated travel bottles on wooden shelf.",
     href: "#",
   },
@@ -47,7 +47,7 @@ const callouts = [
     name: "Travel",
     description: "Daily commute essentials",
     imageSrc:
-      "https://tailwindui.com/img/ecommerce-images/home-page-03-hero-image-tile-05.jpg",
+      "https://tailwindui.com/plus/img/ecommerce-images/home-page-02-edition-03.jpg",
     imageAlt: "Collection of four insulated travel bottles on wooden shelf.",
     href: "#",
   },
@@ -59,7 +59,7 @@ const products = [
     name: "Basic Tee 6-Pack",
     href: "#",
     imageSrc:
-      "https://tailwindui.com/img/ecommerce-images/product-quick-preview-02-detail.jpg",
+      "https://tailwindui.com/plus/img/ecommerce-images/product-page-01-related-product-01.jpg",
     imageAlt: "Front of men's Basic Tee in black.",
     price: "$192",
     color: "Black",
@@ -69,7 +69,7 @@ const products = [
     name: "Basic Tee",
     href: "#",
     imageSrc:
-      "https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-02.jpg",
+      "https://tailwindui.com/plus/img/ecommerce-images/product-page-01-related-product-02.jpg",
     imageAlt: "Front of men's Basic Tee in black.",
     price: "$35",
     color: "Black",
@@ -79,7 +79,7 @@ const products = [
     name: "Basic Tee",
     href: "#",
     imageSrc:
-      "https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-03.jpg",
+      "https://tailwindui.com/plus/img/ecommerce-images/product-page-01-related-product-03.jpg",
     imageAlt: "Front of men's Basic Tee in black.",
     price: "$35",
     color: "Black",
@@ -89,7 +89,7 @@ const products = [
     name: "Zap Tote Basket",
     href: "#",
     imageSrc:
-      "https://tailwindui.com/img/ecommerce-images/shopping-cart-page-04-product-03.jpg",
+      "https://tailwindui.com/plus/img/ecommerce-images/product-page-01-related-product-04.jpg",
     imageAlt: "Front of men's Basic Tee in black.",
     price: "$140.00",
     color: "Black",
@@ -99,7 +99,7 @@ const products = [
     name: "Throwback Hip Bag",
     href: "#",
     imageSrc:
-      "https://tailwindui.com/img/ecommerce-images/shopping-cart-page-04-product-01.jpg",
+      "https://tailwindui.com/plus/img/ecommerce-images/product-page-01-related-product-01.jpg",
     imageAlt: "Front of men's Basic Tee in black.",
     price: "$90.00",
     color: "Black",
@@ -114,7 +114,7 @@ const allProducts = [
     href: "#",
     price: "$48",
     imageSrc:
-      "https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-01.jpg",
+      "https://tailwindui.com/plus/img/ecommerce-images/category-page-04-image-card-01.jpg",
     imageAlt:
       "Tall slender porcelain bottle with natural clay textured body and cork stopper.",
   },
@@ -124,7 +124,7 @@ const allProducts = [
     href: "#",
     price: "$35",
     imageSrc:
-      "https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-02.jpg",
+      "https://tailwindui.com/plus/img/ecommerce-images/category-page-04-image-card-02.jpg",
     imageAlt:
       "Olive drab green insulated bottle with flared screw lid and flat top.",
   },
@@ -134,7 +134,7 @@ const allProducts = [
     href: "#",
     price: "$89",
     imageSrc:
-      "https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-03.jpg",
+      "https://tailwindui.com/plus/img/ecommerce-images/category-page-04-image-card-03.jpg",
     imageAlt:
       "Person using a pen to cross a task off a productivity paper card.",
   },
@@ -144,7 +144,7 @@ const allProducts = [
     href: "#",
     price: "$35",
     imageSrc:
-      "https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-04.jpg",
+      "https://tailwindui.com/plus/img/ecommerce-images/category-page-04-image-card-04.jpg",
     imageAlt:
       "Hand holding black machined steel mechanical pencil with brass tip and top.",
   },
@@ -154,7 +154,7 @@ const allProducts = [
     href: "#",
     price: "$64",
     imageSrc:
-      "https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-05.jpg",
+      "https://tailwindui.com/plus/img/ecommerce-images/category-page-04-image-card-05.jpg",
     imageAlt:
       "Hand holding black machined steel mechanical pencil with brass tip and top.",
   },
@@ -164,7 +164,7 @@ const allProducts = [
     href: "#",
     price: "$39",
     imageSrc:
-      "https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-06.jpg",
+      "https://tailwindui.com/plus/img/ecommerce-images/category-page-04-image-card-06.jpg",
     imageAlt:
       "Hand holding black machined steel mechanical pencil with brass tip and top.",
   },
@@ -174,7 +174,7 @@ const allProducts = [
     href: "#",
     price: "$50",
     imageSrc:
-      "https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-07.jpg",
+      "https://tailwindui.com/plus/img/ecommerce-images/category-page-04-image-card-07.jpg",
     imageAlt:
       "Hand holding black machined steel mechanical pencil with brass tip and top.",
   },
@@ -184,7 +184,7 @@ const allProducts = [
     href: "#",
     price: "$32",
     imageSrc:
-      "https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-08.jpg",
+      "https://tailwindui.com/plus/img/ecommerce-images/category-page-04-image-card-08.jpg",
     imageAlt:
       "Hand holding black machined steel mechanical pencil with brass tip and top.",
   },

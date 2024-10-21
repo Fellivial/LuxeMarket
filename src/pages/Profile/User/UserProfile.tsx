@@ -11,12 +11,12 @@ import {
 import { XMarkIcon } from "@heroicons/react/24/outline";
 import { FunnelIcon, MinusIcon, PlusIcon } from "@heroicons/react/20/solid";
 
-import Layout from "../../component/Layout/Layout";
+import Layout from "../../../component/Layout/Layout";
 
-import Chat from "../../component/Chat/Chat";
-import Wishlist from "./Wishlist";
-import Setting from "./Setting";
-import { AwaitPayment, Purchase } from "../../component/Payment/Payment";
+import Chat from "../../../component/Chat/Chat";
+import Wishlist from "../Wishlist";
+import Setting from "../Setting";
+import { AwaitPayment, Purchase } from "../../../component/Payment/Payment";
 
 const filters = [
   {
@@ -53,7 +53,7 @@ const profile = [
     id: "1",
     name: "Fellivial",
     imageUrl:
-      "https://tailwindui.com/img/ecommerce-images/home-page-03-hero-image-tile-05.jpg",
+      "https://tailwindui.com/plus/img/ecommerce-images/home-page-03-hero-image-tile-05.jpg",
   },
 ];
 
