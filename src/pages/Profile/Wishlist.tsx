@@ -1,4 +1,4 @@
-import { CardWishlist } from "../../component/Card/Card";
+import CardWishlist from "../../component/Card/CardWishlist";
 
 const wishlist = [
   {

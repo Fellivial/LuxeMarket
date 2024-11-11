@@ -27,7 +27,7 @@ import {
 } from "@heroicons/react/20/solid";
 
 import Layout from "../../component/Layout/Layout";
-import { CardItem } from "../../component/Card/Card";
+import CardItem from "../../component/Card/CardItem";
 import PriceRangeSlider from "../../component/Range/PriceRangeSlider";
 
 const sortOptions = [

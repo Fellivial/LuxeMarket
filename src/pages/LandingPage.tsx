@@ -1,6 +1,8 @@
 import Layout from "../component/Layout/Layout";
 import Carousel from "../component/Carousel/Carousel";
-import { CardItem, CardCategory } from "../component/Card/Card";
+
+import CardItem from "../component/Card/CardItem";
+import CardCategory from "../component/Card/CardCategory";
 
 import Calvin from "../assets/Logo/Group (1).png";
 import Gucci from "../assets/Logo/gucci-logo-1 1.png";

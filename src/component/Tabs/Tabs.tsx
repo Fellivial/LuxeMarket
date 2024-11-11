@@ -1,6 +1,8 @@
 // src/components/Tabs.tsx
 import { useState } from "react";
-import { CardReview, CardAddress, CardBank } from "../Card/Card";
+import CardReview from "../Card/CardReview";
+import CardAddress from "../Card/CardAddress";
+import CardBank from "../Card/CardBank";
 
 import {
   AdjustmentsVerticalIcon,

@@ -1,5 +1,5 @@
 import Layout from "../../component/Layout/Layout";
-import { CardCart } from "../../component/Card/Card";
+import CardCart from "../../component/Card/CardCart";
 
 const products = [
   {

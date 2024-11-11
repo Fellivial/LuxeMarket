@@ -1,4 +1,4 @@
-import { CardPurchaseList } from "../Card/Card";
+import CardPurchaseList from "../Card/CardPurchaseList";
 
 const product = [
   {
